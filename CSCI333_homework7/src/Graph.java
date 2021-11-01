@@ -32,7 +32,33 @@ public class Graph {
 		this.time++;
 		u.setParent(u.getName());
 		u.setColor(1);
-		for(int i )
+		for(int i = u.getName(); i < nodes.length; i++) {
+			Node v = nodes[i];
+			if(v.getColor() == 0) {
+				v.setParent(u.getName());
+				dfsVisit(v);
+			}
+		}
+		u.setColor(2);
+		this.time++;
+		u.setfTime(this.time);
 	}
+	
+	public void breathFirstSearch() {
+		
+	}
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
