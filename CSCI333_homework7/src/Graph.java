@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
 	
@@ -44,9 +46,35 @@ public class Graph {
 		u.setfTime(this.time);
 	}
 	
-	public void breathFirstSearch() {
+	public void breathFirstSearch(Node s) {
+		Node u = null;
+		for(int i = s.getName() + 1; i < nodes.length; i++) {
+			u = nodes[i];
+			u.setColor(0);
+			u.setDist((int)Double.POSITIVE_INFINITY);
+			u.setParent(-1);
+		}
+		s.setColor(1);
+		s.setDist(0);
+		s.setParent(-1);
 		
+		Queue<Node> Q = new LinkedList();
+		Q.add(s);
+		while(Q.size() != 0) {
+			Q.remove(u);
+			u.setColor(2);
+			for() {
+				if(v.getColor == 0) {
+					v.setColor(1);
+					v.setDist(u.getDist + 1);
+					v.setParent(u.getName());
+					Q.add(v);
+				}
+			}
+		}
 	}
+	
+	
 	
 	
 
