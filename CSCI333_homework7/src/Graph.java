@@ -49,8 +49,10 @@ public class Graph {
 	}
 	
 	/**
-	 * 
-	 * @param u
+	 * Recursively traverses through the data, and mark the times
+	 * dTime is the time the method changed the vertex to grey
+	 * fTime is the time the method changed the vertex to black
+	 * @param u is the vertex being passed in
 	 */
 	private void dfsVisit(Node u) {
 		this.time++;
@@ -71,34 +73,41 @@ public class Graph {
 	}
 	
 	/**
-	 * 
-	 * @param s
+	 * loops through the data to find the best path from any given point
+	 * to the source
+	 * @param s is the source
 	 */
-	
-	public void breathFirstSearch(Node s) {
+	public void breathFirstSearch(int s) {
 		Node u = null;
-		for(int i = s.getName() + 1; i < nodes.length; i++) {
+		Node S = nodes[s];
+		for(int i = S.getName() + 1; i < nodes.length; i++) {
 			u = nodes[i];
 			u.setColor(0);
 			u.setDist((int)Double.POSITIVE_INFINITY);
 			u.setParent(-1);
 		}
-		s.setColor(1);
-		s.setDist(0);
-		s.setParent(-1);
+		S.setColor(1);
+		S.setDist(0);
+		S.setParent(-1);
 		
 		Queue<Node> Q = new LinkedList();
-		Q.add(s);
+		Q.add(S);
 		while(Q.size() != 0) {
-			Q.remove(u);
+			u = Q.peek();
+			Q.remove();
 			u.setColor(2);
-			for() {
-				if(v.getColor == 0) {
-					v.setColor(1);
-					v.setDist(u.getDist + 1);
-					v.setParent(u.getName());
-					Q.add(v);
+			for(int i = 0; i < nodes.length; i++) {
+				if(edges[u.getName()][i] == true) {
+					Node v = nodes[i];
+							if(v.getColor() == 0) {
+								v.setColor(1);
+								int num = u.getDist();
+								v.setDist(num+1);
+								v.setParent(u.getName());
+								Q.add(v);
+							}
 				}
+					
 			}
 		}
 	}

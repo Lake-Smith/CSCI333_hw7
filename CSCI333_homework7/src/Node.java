@@ -39,7 +39,7 @@ public class Node {
 		}else {
 			color = "black";
 		}
-		String ret = "Name: " + name + " Parent: " + parent + " dTime: " + dTime + " fTime: " + fTime + " dist: " + dist + " It is " + color ;
+		String ret = "Name: " + (name + 1) + " Parent: " + (parent + 1) + " dTime: " + dTime + " fTime: " + fTime + " dist: " + dist + " It is " + color ;
 		return ret;
 		
 	}
@@ -101,8 +101,8 @@ public class Node {
 	
 	
 	/**
-	 * getter for dist
-	 * @return dist
+	 * getter for Dist
+	 * @return Dist
 	 */
 	public int getDist() {
 		return dist;
